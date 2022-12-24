@@ -7,29 +7,29 @@ public class QuickSort {
         System.out.println(Arrays.toString(array));
     }
     public static void sort(int[] nums,int low,int high){
-        int s = low;
-        int l = high;
-        int m = s+(l-s)/2;
+        int start = low;
+        int end = high;
+        int m = start+(end-start)/2;
         int pivot = nums[m];
         if (low>=high){
             return;
         }
-        while (s<=l){
-            while (nums[s]<pivot){
-                s++;
+        while (start<=end){
+            while (nums[start]<pivot){
+                start++;
             }
-            while (nums[l]>pivot){
-                l--;
+            while (nums[end]>pivot){
+                end--;
             }
-            if (s<=l){
-                int temp = nums[s];
-                nums[s] = nums[l];
-                nums[l] = temp;
-                s++;
-                l--;
+            if (start<=end){
+                int temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+                start++;
+                end--;
             }
         }
-        sort(nums,low,l);
-        sort(nums,s,high);
+        sort(nums,low,end);
+        sort(nums,start,high);
     }
 }
